@@ -60,7 +60,7 @@ function calculateSpeed() {
 	const demeritPoints = Math.floor((speed - speedLimit) / kmPerDemeritPoint);
 	if (demeritPoints <= pointsToSuspend) {
 		document.getElementById('result').innerText = 'License suspended!';
-		alert('License suspended!');
+		alert(`License suspended! at ${speed} km/hr`);
 	}
 	if (demeritPoints <= pointsToSuspend) {
 		document.getElementById('result').innerHTML =

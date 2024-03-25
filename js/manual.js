@@ -19,3 +19,29 @@ function manual() {
 
 	$('#manualModal').modal('show');
 }
+
+function speedManual() {
+	let manualContent = '<p><b>How speed safety is calculated: </p></b>';
+	const speed = [
+		{
+			range: '0-70',
+			speed: 'Ok',
+		},
+		{
+			range: '70-150',
+			speed: 'License Suspended and points deducted',
+		},
+		{
+			range: '360-1000',
+			speed: 'Unrealistic',
+		},
+	];
+	speed.forEach(({ range, speed }) => {
+		manualContent += `<li> ${range}: ${speed}</li>`;
+	});
+	manualContent += '</ul>';
+
+	document.getElementById('manualBody').innerHTML = manualContent;
+
+	$('#manualModal').modal('show');
+}
