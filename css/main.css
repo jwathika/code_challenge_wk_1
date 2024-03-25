@@ -1,7 +1,10 @@
 *{
     scroll-behavior: smooth;
 }
-
+/*nav override*/
+.nav, a{
+    font-weight: bolder!important;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
