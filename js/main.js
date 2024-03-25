@@ -81,10 +81,9 @@ function calculateSpeed() {
 function calculateSalary() {
 	// Get inputs
 	// declaring variables
-	let taxableIncome = basicSalary + benefits;
-	let tax;
-	let basicSalary = parseFloat(document.getElementById('basicSalary').value);
-	let benefits = parseFloat(document.getElementById('benefits').value);
+	// changed back to const from let
+	const basicSalary = parseFloat(document.getElementById('basicSalary').value);
+	const benefits = parseFloat(document.getElementById('benefits').value);
 	if (basicSalary <= 0 || benefits < 0) {
 		// Ensure salary is not 0, benefits can be 0 but not less than 0
 		alert('Input an amount greater than 0');
@@ -99,6 +98,8 @@ function calculateSalary() {
 		alert('Input an amount!');
 		return;
 	}
+	//tax can't be accessed bug
+	let tax;
 	// Data from KRA on how tax is calculated
 	if (basicSalary < 24000) {
 		tax = basicSalary * 0.1;
@@ -111,6 +112,8 @@ function calculateSalary() {
 	} else if (basicSalary > 800000) {
 		tax = basicSalary * 0.35;
 	}
+	// can't be accessed from top
+	let taxableIncome = basicSalary + benefits;
 
 	// logic to get the net salary based on gross and tax deducted
 	let netSalary = taxableIncome - tax;
