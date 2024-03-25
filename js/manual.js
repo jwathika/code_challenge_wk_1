@@ -1,4 +1,5 @@
-function manual() {
+// Manual for new users incase they have enquiries
+function gradeManual() {
 	let manualContent = '<p><strong>How we grade our students: </strong></p><ul>';
 
 	const grades = [
@@ -44,4 +45,10 @@ function speedManual() {
 	document.getElementById('manualBody').innerHTML = manualContent;
 
 	$('#manualModal').modal('show');
+}
+
+//https://www.aren.co.ke/payroll/taxrates.htm
+function salaryManual() {
+	pass;
+	//will be redirected to KRA website
 }
