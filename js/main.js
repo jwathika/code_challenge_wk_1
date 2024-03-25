@@ -71,8 +71,29 @@ function calculateSpeed() {
 //salary calculator
 function calculateSalary() {
 	// Get inputs
-	const basicSalary = parseFloat(document.getElementById('basicSalary').value);
-	const benefits = parseFloat(document.getElementById('benefits').value);
-	let taxableIncome = basicSalary + benefits;
-	let tax = 0;
+	let basicSalary = parseFloat(document.getElementById('basicSalary').value);
+	let benefits = parseFloat(document.getElementById('benefits').value);
+	if (basicSalary <= 0 || benefits < 0) {
+		//ensure salary is not 0, benefits can be 0 but not less than 0
+		alert('Input an amount greater than 0');
+		return;
+	}
+	// no empty input
+	if (basicSalary == '' || benefits == '') {
+		alert('Input an amount!');
+		return;
+	}
+	let taxableIncome;
+	let tax;
+	if (basicSalary < 24000) {
+		tax = basicSalary * 0.1;
+	} else if (basicSalary >= 24001 && basicSalary <= 32333) {
+		tax = basicSalary * 0.25;
+	} else if (basicSalary >= 32334 && basicSalary <= 500000) {
+		tax = basicSalary * 0.3;
+	} else if (basicSalary >= 500001 && basicSalary <= 800000) {
+		tax = basicSalary * 0.325;
+	} else if (basicSalary > 800000) {
+		tax = basicSalary * 0.35;
+	}
 }
