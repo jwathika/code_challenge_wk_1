@@ -2,7 +2,9 @@
 // Calculate grades for students
 function calculateGrade() {
 	// receive input from the id="marks" in HTML
-	let marks = document.getElementById('marks').value;
+	let marks = parseInt(document.getElementById('marks').value);
+	//also accept float then convert to int
+
 	let grade;
 	//ensure it's a number and within the range 0-100
 	if (isNaN(marks) || marks < 0 || marks > 100) {
@@ -36,7 +38,7 @@ function calculateGrade() {
 
 //Speed calculator
 function calculateSpeed() {
-	const speedInput = document.getElementById('speedInput');
+	const speedInput = parseInt(document.getElementById('speedInput'));
 	const speed = parseInt(speedInput.value);
 	// ensure speed in an Int and not less than 0
 	if (isNaN(speed) || speed < 0) {
@@ -120,4 +122,5 @@ function calculateSalary() {
 
 	document.getElementById('tax').innerText = 'Tax: ' + tax;
 	document.getElementById('netSalary').innerText = 'Net Salary: ' + netSalary;
+	console.log(`Net salary is ${netSalary} and tax to pay is ${tax}`);
 }
