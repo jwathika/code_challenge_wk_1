@@ -8,7 +8,7 @@ function calculateGrade() {
 		$('#errorModal').modal('show');
 		return;
 	}
-	if (marks === '') {
+	if (marks == '') {
 		//check if user inputs blank
 		alert('Input marks!');
 		return;
@@ -39,7 +39,7 @@ function calculateSpeed() {
 		$('#errorModal').modal('show');
 		return;
 	}
-	if (speed === '') {
+	if (speed == '') {
 		//check if user inputs blank
 		alert('Input speed!');
 		return;
