@@ -93,7 +93,7 @@ function calculateSalary() {
 		basicSalary == '' ||
 		benefits == '' ||
 		isNaN(basicSalary) ||
-		isNaN(benefits)
+		isNaN(benefits) // maybe benefits can be 0 but user has to input 0
 	) {
 		alert('Input an amount!');
 		return;
