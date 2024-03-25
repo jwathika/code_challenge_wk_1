@@ -49,3 +49,6 @@ For speed it doesn't exceed 360km/hr.
 All inputs are in Integer format else if in float, converts to nearest whole number.
 
 All outputs and errors are logged on the console.
+
+**Sample**
+![sample](image.png)
