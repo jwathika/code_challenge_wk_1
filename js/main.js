@@ -38,44 +38,49 @@ function calculateGrade() {
 
 //Speed calculator
 function calculateSpeed() {
-	const speedInput = parseInt(document.getElementById('speedInput'));
-	const speed = parseInt(speedInput.value);
-	// ensure speed in an Int and not less than 0
+	// Get the speed input value and parse it as an integer
+	const speed = parseInt(document.getElementById('speedInput').value);
+
+	// Check if speed is a valid integer and not less than 0
 	if (isNaN(speed) || speed < 0) {
-		// show the information modal
-		$('#errorModal').modal('show');
-		return;
-	}
-	if (speed > 300) {
-		alert('Use realistic values');
-	}
-	if (speed == '') {
-		//check if user inputs blank
-		alert('Input speed!');
+		$('#errorModal').modal('show'); // Show error modal
 		return;
 	}
 
-	// constants which can't be changed
+	// Check if speed is greater than 300, which is unrealistic
+	if (speed > 300) {
+		alert('Use realistic values'); // Show alert message
+		return;
+	}
+
+	// Check if speed input is empty
+	if (speed === '') {
+		alert('Input speed!'); // Show alert message
+		return; // Exit the function
+	}
+
+	// Constants for speed limits and demerit points
 	const speedLimit = 70;
 	const kmPerDemeritPoint = 5;
 	const pointsToSuspend = 12;
 
-	// logic for calculating speed and returning feedback to user
 	if (speed <= speedLimit) {
-		document.getElementById('result').innerHTML = '<b>OK</b>';
-		console.log(`${speed} is okay`);
+		document.getElementById('result').innerHTML = '<b>Ok</b>';
 		return;
 	}
-	// ensure limit is not exceeded
+	// Calculate demerit points
 	const demeritPoints = Math.floor((speed - speedLimit) / kmPerDemeritPoint);
-	// if so, suspend license and deduct points
-	if (demeritPoints <= pointsToSuspend) {
-		document.getElementById('result').innerText = 'License suspended!';
+
+	// Display result based on demerit points
+	if (demeritPoints >= pointsToSuspend) {
+		// If demerit points reach or exceed 12, suspend license
+		document.getElementById('result').innerHTML = '<b>License suspended!</b>';
 		alert(`License suspended! at ${speed} km/hr`);
 	}
 	if (demeritPoints <= pointsToSuspend) {
+		// If demerit points are less than 12, display points
 		document.getElementById('result').innerHTML =
-			'<b>Points: -</b>' + demeritPoints;
+			'<b>Points: ' + demeritPoints + '</b>';
 	}
 }
 
