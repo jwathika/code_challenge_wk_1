@@ -150,13 +150,29 @@
 						placeholder="Enter benefits"
 					/>
 				</div>
-				<button
-					type="button"
-					class="btn btn-primary"
-					onclick="calculateSalary()"
-				>
-					Calculate
-				</button>
+				<div class="row">
+					<div class="col">
+						<button
+							type="button"
+							class="btn btn-outline-primary"
+							onclick="calculateSalary()"
+						>
+							Calculate speed
+						</button>
+						<div id="result" class="mt-3"></div>
+					</div>
+					<div class="col">
+						<button type="button" class="btn btn-outline-primary">
+							<a
+								href="https://www.aren.co.ke/payroll/taxrates.htm"
+								target="_blank"
+								rel="no referrer"
+								style="text-decoration: none"
+								>Manual</a
+							>
+						</button>
+					</div>
+				</div>
 			</form>
 			<div id="result" class="mt-3">
 				<p id="tax"></p>
