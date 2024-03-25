@@ -39,6 +39,9 @@ function calculateSpeed() {
 		$('#errorModal').modal('show');
 		return;
 	}
+	if (speed > 300) {
+		alert('Use realistic values');
+	}
 	if (speed == '') {
 		//check if user inputs blank
 		alert('Input speed!');
@@ -63,4 +66,13 @@ function calculateSpeed() {
 		document.getElementById('result').innerHTML =
 			'<b>Points: </b>' + demeritPoints;
 	}
+}
+
+//salary calculator
+function calculateSalary() {
+	// Get inputs
+	const basicSalary = parseFloat(document.getElementById('basicSalary').value);
+	const benefits = parseFloat(document.getElementById('benefits').value);
+	let taxableIncome = basicSalary + benefits;
+	let tax = 0;
 }
